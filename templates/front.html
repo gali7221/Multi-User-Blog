@@ -1,0 +1,8 @@
+{% extends "base.html" %} {% block content %} {% for p in posts %} {{ p.render() | safe }} {% if user.name == p.author %}
+<span style="margin:20px 0 0 251px;">your post.</span> {% elif user.name not in p.liked_by %}
+<a style="margin:20px 0 0 251px;" href="/blog/{{p.key().id()}}/like">&#9650; UP</a> {% elif user.name == author %}
+<br> {% else %}
+<p style="margin: 20px 0 0 251px;">You Like this post</p>
+{% endif %}
+<!-- <a href="/blog/{{p.key().id()}}/dislike">&#9660; Down</a> -->
+<br><br> {% endfor %} {% endblock %}

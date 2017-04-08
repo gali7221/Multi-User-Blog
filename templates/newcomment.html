@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block content %}
+
+<form method="post" class="basic-grey">
+    <h2>new comment for <span style="font-style:italic; color:#E27575;">{{subject}}</span></h2>
+    <h3 style="color:#888; font-style:normal; font-size:20px;">{{content}}</h3>
+    <label>
+        <textarea name="comment">{{comment}}</textarea>
+        <input type="hidden" value="{{user.name}}">
+    </label>
+
+    <div class="error">{{error}}</div>
+
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="Send" />
+    </label>
+</form>
+{% endblock %}

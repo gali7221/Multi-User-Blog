@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+<form action="" method="post" class="basic-grey">
+    <h2>Edit Post</h2>
+    <label>
+        <span>Subject :</span>
+        <input id="name" type="text" name="subject" value="{{subject}}" />
+    </label>
+    <label>
+        <span>Content :</span>
+        <textarea id="name" name="content">{{content}}</textarea>
+    </label>
+    <div class="error">{{error}}</div>
+
+    <label for=""></label>
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="Send" />
+    </label>
+
+    <label for=""></label>
+    <a href="/{{post_id}}"><label>
+          <span>&nbsp;</span>
+          <input type="submit" class="button" value="Back" />
+      </label></a>
+
+    <input id="name" type="hidden" name="author" value="{{user.name}}">
+
+</form>
+{% endblock %}

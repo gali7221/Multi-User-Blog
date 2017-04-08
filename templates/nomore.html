@@ -1,0 +1,53 @@
+base.html
+<!-- <nav class="main-nav">
+    <div class="title">
+        <a href="/blog" class="main-title">
+        {% if user %}
+            Welcome, {{user.name}}
+        {% endif %}
+        Just another blog
+    </a>
+    </div>
+</nav> -->
+
+
+<!-- <ul class="nav-menu">
+    <li>
+        <a href="/blog" class="main-title">Home</a> {% if user %}
+        <a href="/blog/newpost">Add Post</a>
+        <a href="/logout">Logout</a> {% else %}
+        <a href="/login">Login</a>
+        <a class="login-link" href="/signup">Signup</a> {% endif %}
+    </li>
+</ul> -->
+
+End of base.html login.html
+<form method="post">
+    <label for="username">
+        <div>Username</div>
+        <input id="username" type="text" name="username" value="{{username}}">
+    </label>
+
+    <label for="password">
+        <div>Password</div>
+        <input id="password" type="password" name="password" value="">
+    </label>
+
+    <div class="error">
+        {{error}}
+    </div>
+
+    <input type="submit">
+</form>
+
+end of login.html Signup.html
+<form method="post">
+
+    Username
+    <input type="text" name="username" value="{{username}}"> {{error_username}} Password
+    <input type="password" name="password" value=""> {{error_password}} Verify Password
+    <input type="password" name="verify" value=""> {{error_verify}} Email (optional)
+    <input type="text" name="email" value="{{email}}"> {{error_email}}
+
+    <input type="submit">
+</form>

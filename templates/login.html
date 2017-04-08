@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block content %}
+
+<form action="" method="post" class="basic-grey">
+    <h2>Login</h2>
+    <label>
+        <span>Username :</span>
+        <input id="name" type="text" name="username" value="{{username}}" placeholder="Username" />
+    </label>
+    <label>
+        <span>Password :</span>
+        <input id="name" type="password" name="password" placeholder="Password" />
+    </label>
+
+    <label for=""></label>
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="Send" />
+    </label>
+</form>
+{% endblock %}

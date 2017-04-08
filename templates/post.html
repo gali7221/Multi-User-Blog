@@ -1,0 +1,15 @@
+<div class="basic-grey">
+    <div class="post-heading">
+        <div class="post-title">
+            <a style="margin-left:-222px; font-size:23px;" href="/blog/{{p.key().id()}}">{{p.subject}}</a>
+        </div>
+
+        <div style="margin-left:-90px; font-size:15px;" class="post-date">
+            {{p.created.strftime("%b %d, %Y")}} by: {{p.author}} | Total likes: {{p.likes}}
+        </div>
+    </div>
+
+    <div style="margin: 20px 0px 0px 25px; font-size:25px;" class="post-content">
+        {{p._render_text | safe}}
+    </div>
+</div>

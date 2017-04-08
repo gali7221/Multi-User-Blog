@@ -1,0 +1,22 @@
+{% if user and post.comments %}
+<div class="post-comments">
+    <h2>Comments</h2> {% for c in post.comments %}
+
+    <div class="comment">
+        {% if user.name == c.author %}
+        <li>
+            <a href="/blog/{{post.key().id()}}/editcomment/{{c.key().id()}}">update</a>
+        </li>
+        <li>
+            <a href="/blog/{{post.key().id()}}/editcomment/{{c.key().id()}}">update</a>
+        </li>
+        {% endif %}
+
+        <div class="comment-author">{{ c.parent().name }} says:</div>
+        <p class="comment-content">{{ c.comment }}</p>
+
+    </div>
+
+    {% endfor %} {% endif %}
+
+</div>

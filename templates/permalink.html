@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block content %} {% if user %}
+<aside>
+    <ul class="controls">
+        {% if user.name == post.author %}
+        <li>
+            <a href="/blog/{{post.key().id()}}/edit">&#9998; Edit</a>
+        </li>
+        <li>
+            <a href="/blog/{{post.key().id()}}/removepost" class="like-button">&#10006; Delete</a>
+        </li>
+        <li>
+            <a href="/blog/{{post.key().id()}}/newcomment" class="like-button">&#10006; New Comment</a>
+        </li>
+
+        {% elif user.name in post.liked_by %}
+        <li>
+            <a href="/blog">&#9666; Back</a>
+            <!-- <a href="/blog/{{post.key().id()}}/dislike">&#9660; Down</a> -->
+        </li>
+        <li>
+            <a href="/blog/{{post.key().id()}}/newcomment" class="like-button">&#xe031; New Comment</a>
+        </li>
+        <!-- <span>You've already liked this post. There is no functionality to dislike yet. Working on it!</span> -->
+        {% elif user.name not in post.liked_by %}
+        <li>
+            <a href="/blog">&#9666; Back</a>
+            <a href="/blog/{{post.key().id()}}/like">&#9650; UP</a>
+        </li>
+        <li>
+            <a href="/blog/{{post.key().id()}}/newcomment" class="like-button">&#xe031; New Comment</a>
+        </li>
+        {% else %}
+        <li>
+            <a href="/blog">&#9666; Back</a>
+        </li>
+        <li>
+            <a href="/blog/{{post.key().id()}}/like">&#9650;</a>
+        </li>
+        <li>
+            <a href="/blog/{{post.key().id()}}/newcomment" class="like-button">&#xe031; New Comment</a>
+        </li>
+        {% endif %}
+    </ul>
+</aside>
+{% endif %} {{post.render() | safe}}
+<!-- <div>
+    <span>{{post.comments.count()}} comments</span>
+</div> -->
+
+<div class="basic-grey">
+    <h2>Comments</h2> {% for c in post.comments %}
+
+    <div>
+        <h2 style="margin-left:-110px; border-bottom: 0px; font-style:italic;">{{ c.parent().name }} says:</h2>
+        <p style="font-size:22px;">{{ c.comment }}</p>
+        {% if c.parent().name == user.name %}
+        <a href="/blog/{{post.key().id()}}/editcomment/{{c.key().id()}}">update</a>
+        <a href="/blog/{{post.key().id()}}/deletecomment/{{c.key().id()}}">delete</a> {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+    <a style="margin-left:112px;" href="/blog/{{post.key().id()}}/newcomment">add new comment</a>
+
+</div>
+
+{% endblock %}
